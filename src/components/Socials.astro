@@ -1,0 +1,23 @@
+---
+import { socials } from "../data"
+import SocialButton from "./SocialButton.astro"
+---
+
+<ul>
+  {
+    socials.map((social) => (
+      <li>
+        <SocialButton social={social} />
+      </li>
+    ))
+  }
+</ul>
+
+<style>
+  ul {
+    display: flex;
+    gap: 1em;
+    list-style: none;
+    padding: 0;
+  }
+</style>

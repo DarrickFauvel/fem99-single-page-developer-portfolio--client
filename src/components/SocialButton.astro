@@ -1,0 +1,7 @@
+---
+const { name, url, image } = Astro.props.social
+---
+
+<a href={url}>
+  <img class="highlight" src={`/images/${image}`} alt={name} title={name} />
+</a>

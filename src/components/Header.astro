@@ -1,0 +1,43 @@
+---
+import { siteInfo } from "../data"
+
+import profileImage from "../assets/images/image-profile-mobile.webp"
+import Socials from "./Socials.astro"
+---
+
+<header>
+  <div class="container">
+    <img class="profile-image" src={profileImage} alt="Photo of Adam Keyes" />
+    <nav>
+      <a href="#" class="brand">{siteInfo.brand}</a>
+      <Socials />
+    </nav>
+  </div>
+</header>
+
+<style>
+  header {
+    position: relative;
+    height: calc(383px + 40px);
+  }
+
+  .profile-image {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 174px;
+    z-index: -1;
+  }
+
+  nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1em;
+  }
+
+  a:link {
+    text-decoration: none;
+    color: var(--color-white);
+  }
+</style>

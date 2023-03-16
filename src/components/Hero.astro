@@ -1,0 +1,58 @@
+---
+import Header from "./Header.astro"
+import ContactButton from "./ContactButton.astro"
+---
+
+<section id="hero">
+  <img src="/images/pattern-rings.svg" alt="" class="ringsPatter" />
+  <img src="/images/pattern-circle.svg" alt="" class="circlePattern" />
+  <Header />
+  <div class="container">
+    <div class="text-content">
+      <h1>Nice to meet you! I'm <span class="underline">Adam Keyes</span>.</h1>
+      <p>
+        Based in the UK, I'm a front-end developer passionate about building
+        accessible web apps that users love.
+      </p>
+      <ContactButton />
+    </div>
+  </div>
+</section>
+
+<style>
+  #hero {
+    position: relative;
+  }
+
+  .ringsPatter {
+    position: absolute;
+    top: 124px;
+    left: calc(-530px + (375px / 2));
+    z-index: -1;
+  }
+
+  .circlePattern {
+    position: absolute;
+    top: 254px;
+    left: calc(375px - (129px / 2));
+  }
+
+  .text-content {
+    text-align: center;
+  }
+
+  h1 {
+    font: var(--font-heading-mobile);
+    letter-spacing: var(--ls-mobile);
+  }
+
+  .underline {
+    display: inline-block;
+    border-bottom: 4px solid var(--color-aquamarine);
+  }
+
+  p {
+    font: var(--font-base-mobile);
+    margin-top: calc((20 / 16) * 1em);
+  }
+</style>

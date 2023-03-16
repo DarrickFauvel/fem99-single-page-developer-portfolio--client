@@ -1,0 +1,178 @@
+---
+import favicon from "../assets/images/favicon-32x32.png"
+import Header from "../components/Header.astro"
+import Hero from "../components/Hero.astro"
+import Footer from "../components/Footer.astro"
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href={favicon} />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>Frontend Mentor | Single-page developer portfolio</title>
+  </head>
+  <body>
+    <!-- <Header /> -->
+
+    <Hero />
+
+    <main>
+      <slot />
+    </main>
+
+    <Footer />
+  </body>
+</html>
+
+<style is:global>
+  :root {
+    /* TYPOGRAPHY */
+
+    /* Base font properties */
+    --ff-base: "Space Grotesk", sans-serif;
+    --fs-base: calc((18 / 16) * 1rem);
+    --lh-base: calc((28 / 16));
+
+    /* Mobile Base font properties */
+    --ff-base: "Space Grotesk", sans-serif;
+    --fs-base-mobile: calc((16 / 16) * 1rem);
+    --lh-base-mobile: calc((26 / 16));
+
+    /* Font weights */
+    --fw-base: 500;
+    --fw-heading: 700;
+
+    /* Heading XL */
+    --fs-xl: calc((88 / 16) * 1rem);
+    --lh-xl: calc((88 / 88));
+    --ls-xl: calc((-2.5 / 16) * 1rem);
+
+    /* Heading L */
+    --fs-l: calc((48 / 16) * 1rem);
+    --lh-l: calc((56 / 48));
+    --ls-l: calc((-1.5 / 16) * 1rem);
+
+    /* Heading M */
+    --fs-m: calc((24 / 16) * 1rem);
+    --lh-m: calc((32 / 24));
+
+    /* Heading Mobile */
+    --fs-mobile: calc((40 / 16) * 1rem);
+    --lh-mobile: calc((40 / 40));
+    --ls-mobile: calc((-1.15 / 16) * 1rem);
+
+    --font-base: var(--fw-base) var(--fs-base) / var(--lh-base) var(--ff-base);
+    --font-heading-xl: var(--fw-heading) var(--fs-xl) / var(--lh-xl)
+      var(--ff-base);
+    --font-heading-l: var(--fw-heading) var(--fs-l) / var(--lh-l) var(--ff-base);
+    --font-heading-m: var(--fw-heading) var(--fs-m) / var(--lh-m) var(--ff-base);
+
+    --font-base-mobile: var(--fw-base) var(--fs-base-mobile) /
+      var(--lh-base-mobile) var(--ff-base);
+    --font-heading-mobile: var(--fw-heading) var(--fs-mobile) / var(--lh-mobile)
+      var(--ff-base);
+
+    /* COLORS */
+    --color-night: #151515;
+    --color-aquamarine: #4ee1a0;
+    --color-eerie-black: #242424;
+    --color-platinum: #d9d9d9;
+    --color-white: #ffffff;
+
+    --bgc-base: var(--color-night);
+    --color-base: var(--color-platinum);
+    --color-heading: var(--color-white);
+  }
+
+  *,
+  *::before,
+  *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    display: grid;
+    font: var(--font-base);
+    background-color: var(--bgc-base);
+    color: var(--color-base);
+    margin-block: 1em;
+    margin-block: 0;
+    margin-inline: auto;
+  }
+
+  /* Testing */
+  /* body {
+    outline: 1px solid red;
+  }
+  body::before {
+    content: "body red";
+    font-family: "Courier New", Courier, monospace;
+    font-size: 0.6em;
+    color: red;
+  } */
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: var(--color-heading);
+  }
+
+  img {
+    width: 100%;
+  }
+
+  .container {
+    display: grid;
+    margin-inline: auto;
+    width: 375px;
+  }
+
+  a.btn:link,
+  a.btn:visited {
+    display: inline-block;
+    color: var(--color-white);
+    text-decoration: none;
+    text-transform: uppercase;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--color-aquamarine);
+  }
+  /* a.btn:hover,
+  a.btn:focus {
+    filter: drop-shadow(0 0 5px rgb(250, 0, 250));
+    transform: translateY(-2px);
+  } */
+
+  .highlight {
+    transition: transform 300ms;
+  }
+  .highlight:hover,
+  .highlight:focus {
+    filter: brightness(0) saturate(100%) invert(72%) sepia(48%) saturate(493%)
+      hue-rotate(100deg) contrast(89%);
+    transform: scale(1.05);
+  }
+
+  /* Testing */
+  /* .container {
+    outline: 1px solid green;
+  }
+  .container::before {
+    content: "container green";
+    font-family: "Courier New", Courier, monospace;
+    font-size: 0.6em;
+    color: green;
+  } */
+</style>

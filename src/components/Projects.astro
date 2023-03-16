@@ -1,0 +1,71 @@
+---
+import { projects } from "../data"
+import ContactButton from "./ContactButton.astro"
+---
+
+<section id="projects">
+  <div class="container">
+    <header>
+      <h2>Projects</h2>
+      <ContactButton />
+    </header>
+
+    {
+      projects.map(({ image, title, stack, links }) => (
+        <article>
+          <img class="image" src={`/images/${image.small}`} alt={title} />
+          <h3 class="title">{title}</h3>
+          <ul class="stack">
+            {stack.map((item) => (
+              <li>{item}</li>
+            ))}
+          </ul>
+          <ul class="links">
+            {links.map(({ title, url }) => (
+              <li>
+                <a class="btn highlight" href={url}>
+                  {title}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </article>
+      ))
+    }
+  </div>
+</section>
+
+<style>
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 1em;
+  }
+
+  article {
+    margin-bottom: calc((40 / 16) * 1em);
+  }
+
+  h3 {
+    font: var(--font-heading-m);
+    text-transform: uppercase;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    gap: 1em;
+    text-transform: uppercase;
+  }
+
+  .stack {
+    color: var(--color-platinum);
+  }
+
+  .links {
+    font: var(--font-base-mobile);
+    margin-top: 1em;
+  }
+</style>
